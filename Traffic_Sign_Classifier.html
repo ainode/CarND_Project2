@@ -11771,7 +11771,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load pickled data</span>
@@ -11816,7 +11816,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Replace each question mark with the appropriate value.</span>
@@ -11837,6 +11837,8 @@ div#notebook {
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of testing examples =&quot;</span><span class="p">,</span> <span class="n">n_test</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Image data shape =&quot;</span><span class="p">,</span> <span class="n">image_shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of classes =&quot;</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y shape: &#39;</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">y_train</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -11853,6 +11855,8 @@ div#notebook {
 Number of testing examples = 12630
 Image data shape = (32, 32, 3)
 Number of classes = 43
+y shape:  (39209,)
+&lt;class &#39;numpy.ndarray&#39;&gt;
 </pre>
 </div>
 </div>
@@ -12661,7 +12665,9 @@ Model saved
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
-The type of optimizer I used is AdamOptimizer batch size is 128 and epoch is 30. I left mu at 0 and changed sigma to 0.05.</p>
+The type of optimizer I used is AdamOptimizer batch size is 128 and epoch is 30. I left mu at 0 and changed sigma to 0.05.
+When chosing the right epoch, I started with lower numbers and gradually increased it. After many experiments, I noticed that the accuracy hovered around the same figures any where between 27 to 30 although well before 30 the progress started to slow down. As we can see with the current epoch, the test result is around 94%, which seems to be decent.
+As for the sigma, I did the same and lower and higher sigmas give a lower accuracy.</p>
 
 </div>
 </div>
@@ -13737,6 +13743,18 @@ Vgl/m+L/AyG4ZcoUw1N+AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Answer:</strong>
+One quality that would make the classification difficult, would be the size of the sign in the image. The images found in the internet or else where, although they will be resized to fit the dimentions required by the program, but the signs size may differ. 
+The other quality would be the nature of the images as to what category they belong to. In my classifiers case, the mistake happens with speed limit where numbers are involved. While I was trying different samples of signs that involve numbers, I noticed that the classifier, makes more mistakes with the ones that have numbers on them.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 
 </div>
@@ -13922,6 +13940,18 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Answer:</strong>
+The model seems to be having more certainty in it's prediction when it is predicting correct. Only in one case the certainty is less and it is the priority road that is very similar to the end of priority road sign and other signs that envolve two vehicles. In most cases, when the prediction is correct, the difference between the first prediction and the next two is high.
+In the case that the prediction was wrong, the correct prediction appears in the third place. all the top three are signs that have numbers on them.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
